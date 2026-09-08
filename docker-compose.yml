@@ -1,0 +1,23 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: docker/backend.Dockerfile
+    container_name: phishing-url-detector-backend
+    restart: unless-stopped
+    expose:
+      - "5000"
+    # Nmap uses TCP connect scanning (-sT), so NET_RAW/--privileged is not required.
+    security_opt:
+      - no-new-privileges:true
+
+  frontend:
+    build:
+      context: .
+      dockerfile: docker/frontend.Dockerfile
+    container_name: phishing-url-detector-frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "3000:80"

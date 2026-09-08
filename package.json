@@ -1,0 +1,14 @@
+{
+  "name": "phishing-url-detector",
+  "version": "2.0.0",
+  "description": "Phishing URL Detection and Security Intelligence System",
+  "private": true,
+  "scripts": {
+    "frontend": "cd frontend && npm run dev",
+    "backend": "cd backend && python -m venv .venv && .\\.venv\\Scripts\\python -m uvicorn app.main:app --reload --host 0.0.0.0 --port 5000",
+    "install-frontend": "cd frontend && npm install",
+    "install-backend": "cd backend && python -m venv .venv && .\\.venv\\Scripts\\python -m pip install -r requirements.txt"
+  },
+  "keywords": ["phishing", "security", "url-analysis", "fastapi"],
+  "license": "MIT"
+}
